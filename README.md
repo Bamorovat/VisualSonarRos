@@ -5,6 +5,13 @@
 [![ROS Version](https://img.shields.io/badge/ROS-Kinetic%20%7C%20Melodic%20%7C%20Noetic-blue.svg)](http://wiki.ros.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-3.0%2B-green.svg)](https://opencv.org/)
 [![C++](https://img.shields.io/badge/C%2B%2B-14-blue.svg)](https://en.cppreference.com/w/cpp/14)
+[![Platform](https://img.shields.io/badge/Platform-Ubuntu%2016.04%2B-orange.svg)](https://ubuntu.com/)
+[![CMake](https://img.shields.io/badge/CMake-3.0.2%2B-red.svg)](https://cmake.org/)
+[![Algorithms](https://img.shields.io/badge/Edge%20Detection-6%20Algorithms-purple.svg)](#-multiple-edge-detection-algorithms)
+[![Real-time](https://img.shields.io/badge/Performance-19.6%20FPS-brightgreen.svg)](#-performance-optimization)
+[![Research](https://img.shields.io/badge/Research-IEEE%20Papers-blue.svg)](#-scientific-background)
+[![Stars](https://img.shields.io/github/stars/Bamorovat/VisualSonarRos?style=social)](https://github.com/Bamorovat/VisualSonarRos/stargazers)
+[![Forks](https://img.shields.io/github/forks/Bamorovat/VisualSonarRos?style=social)](https://github.com/Bamorovat/VisualSonarRos/network/members)
 
 ## Advanced Mobile Robot Navigation Using Omnidirectional Vision and Virtual Sonar
 
@@ -16,11 +23,11 @@
 
 ---
 
-## 🎯 **Overview**
+## **Overview**
 
 Visual Sonar ROS is a sophisticated navigation system for mobile robots that uses **omnidirectional vision** to simulate **sonar-like obstacle detection**. Instead of relying on physical sonar sensors, this system processes camera images with advanced computer vision algorithms to detect obstacles and compute safe navigation paths.
 
-### **🔬 Scientific Background**
+### **Scientific Background**
 
 This implementation is based on peer-reviewed research published in multiple IEEE conferences:
 
@@ -30,14 +37,14 @@ This implementation is based on peer-reviewed research published in multiple IEE
 
 3. **Bamorovat Abadi, M.H., Asghari Oskoei, M., Fakharian, A.** *"Side Sonar Vision Applied to Omni-directional Images to Navigate Mobile Robots."* 16th Conference on Fuzzy Systems and 14th Conference on Intelligent Systems, IEEE, 2017. [[**PDF**]](https://bamorovat.files.wordpress.com/2017/08/side-sonar-vision-applied-to-omni-directional-images-to-navigate.pdf) [[**BibTex**]](https://bamorovat.wordpress.com/bibtext3/)
 
-### **📹 Demo Video**
+### **Demo Video**
 Watch our robot in action: **[Robot Navigation Demo](https://youtu.be/JKRwDcHyVbo)**
 
 ---
 
-## 🚀 **Key Features (New in v2.0)**
+## **Key Features (New in v2.0)**
 
-### **🎛️ Multiple Edge Detection Algorithms**
+### **Multiple Edge Detection Algorithms**
 - **Sobel** - Robust general-purpose edge detection
 - **Canny** - Precise edges with excellent noise handling  
 - **Laplacian** - Fast detection for high-contrast scenarios
@@ -45,20 +52,20 @@ Watch our robot in action: **[Robot Navigation Demo](https://youtu.be/JKRwDcHyVb
 - **Roberts** - Simple and fast for basic edge detection
 - **Prewitt** - Alternative gradient operator
 
-### **🧠 Advanced Processing Pipeline**
+### **Advanced Processing Pipeline**
 - **Light Reflection Elimination** - HSV-based analysis to reduce false positives
 - **Virtual Sonar Beams** - Configurable number and positioning (default: 24 beams)
 - **Graduated Speed Control** - Dynamic velocity adjustment based on obstacle proximity
 - **Safety Mechanisms** - Emergency stop and velocity limiting
 
-### **⚙️ Modern Architecture**
+### **Modern Architecture**
 - **Object-Oriented Design** - Clean, maintainable C++14 code
 - **Namespace Organization** - Proper code organization and conflict prevention
 - **Parameter Server Integration** - Runtime configuration via ROS parameters
 - **Comprehensive Error Handling** - Robust operation with graceful degradation
 - **Performance Monitoring** - Real-time statistics and diagnostics
 
-### **🔧 Professional Features**
+### **Professional Features**
 - **Real-time Visualization** - Debug images with navigation vectors and statistics
 - **Multiple Configuration Scenarios** - Optimized presets for indoor/outdoor/low-light conditions
 - **Thread-Safe Operations** - Proper concurrent processing
@@ -66,7 +73,7 @@ Watch our robot in action: **[Robot Navigation Demo](https://youtu.be/JKRwDcHyVb
 
 ---
 
-## 📋 **Requirements**
+## **Requirements**
 
 ### **System Requirements**
 - **Operating System:** Ubuntu 16.04+ (tested on 16.04, 18.04, 20.04)
@@ -93,9 +100,15 @@ Watch our robot in action: **[Robot Navigation Demo](https://youtu.be/JKRwDcHyVb
 
 ---
 
-## 🛠️ **Installation**
+## **Installation**
+
+> [!IMPORTANT]
+> Ensure you have Ubuntu 16.04+ and at least 4GB RAM for optimal performance.
 
 ### **1. Prerequisites**
+
+> [!WARNING]
+> ROS installation requires sudo privileges and internet connection. This process may take 30-60 minutes.
 
 **Install ROS (if not already installed):**
 ```bash
@@ -124,12 +137,19 @@ source ~/.bashrc
 ```
 
 ### **3. Clone and Build Visual Sonar ROS**
+
+> [!TIP]
+> Use `git clone --depth 1` for faster download if you don't need the full commit history.
+
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/Bamorovat/VisualSonarRos.git visual_sonar_ros
 cd ~/catkin_ws
 catkin_make
 ```
+
+> [!NOTE]
+> Build time typically takes 2-5 minutes depending on your system specifications.
 
 ### **4. Install Additional Dependencies**
 ```bash
@@ -144,6 +164,9 @@ rosdep install --anonymous --from-paths src --ignore-src --rosdistro melodic -y
 
 ## 🎮 **Usage**
 
+> [!IMPORTANT]
+> Always ensure a camera is connected and publishing images before starting the Visual Sonar node.
+
 ### **Basic Operation**
 
 **1. Start ROS Core:**
@@ -152,6 +175,10 @@ roscore
 ```
 
 **2. Launch Camera Node (Example with USB camera):**
+
+> [!TIP]
+> Test your camera first with `lsusb` and `ls /dev/video*` to verify it's detected.
+
 ```bash
 # Install usb_cam if needed
 sudo apt install ros-melodic-usb-cam
@@ -165,7 +192,13 @@ roslaunch usb_cam usb_cam-test.launch
 rosrun visual_sonar_ros visual_sonar_ros_node
 ```
 
+> [!NOTE]
+> The node will automatically start processing images and publishing navigation commands.
+
 ### **Advanced Usage with Parameters**
+
+> [!TIP]
+> Use `rosparam list` to see all available parameters and `rosparam get /visual_sonar/param_name` to check current values.
 
 **Launch with custom parameters:**
 ```bash
@@ -177,6 +210,9 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
   _edge_algorithm:=canny \
   _debug_mode:=true
 ```
+
+> [!WARNING]
+> Debug mode significantly increases CPU usage and should only be enabled for development.
 
 ---
 
@@ -196,6 +232,9 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
 
 ### **Edge Detection Algorithms**
 
+> [!TIP]
+> Start with `canny` for general use, then switch to `laplacian` for better performance or `sobel` for noisy environments.
+
 | Algorithm | Best For | Parameters |
 |-----------|----------|------------|
 | `canny` | General use, precise edges | `low_threshold: 50`, `high_threshold: 150` |
@@ -205,7 +244,13 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
 | `roberts` | Fast, simple edges | `threshold: 128` |
 | `prewitt` | Alternative gradient | `threshold: 128` |
 
+> [!NOTE]
+> Algorithm performance varies with lighting conditions. Test different algorithms in your specific environment.
+
 ### **Navigation Parameters**
+
+> [!CAUTION]
+> Always test navigation parameters in a safe environment before deploying on actual robots.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -214,6 +259,9 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
 | `safety_distance` | double | 0.3 | Minimum obstacle distance (m) |
 | `emergency_stop_distance` | double | 0.15 | Emergency stop threshold (m) |
 | `speed_reduction_factor` | double | 0.8 | Speed reduction near obstacles |
+
+> [!IMPORTANT]
+> The `emergency_stop_distance` should always be less than `safety_distance` for proper safety operation.
 
 ### **Light Reflection Parameters**
 
@@ -226,7 +274,7 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
 
 ---
 
-## 📊 **ROS Interface**
+## **ROS Interface**
 
 ### **Subscribed Topics**
 
@@ -254,7 +302,7 @@ rosrun visual_sonar_ros visual_sonar_ros_node \
 
 ---
 
-## 🧪 **Testing and Validation**
+## **Testing and Validation**
 
 ### **Unit Tests**
 ```bash
@@ -267,32 +315,19 @@ rostest visual_sonar_ros edge_detection_test.launch
 rostest visual_sonar_ros navigation_test.launch
 ```
 
-### **Performance Benchmarks**
 
-| Component | Processing Time | Memory Usage |
-|-----------|-----------------|--------------|
-| Edge Detection | ~15ms (640x480) | ~45MB |
-| Light Reflection Analysis | ~8ms | ~12MB |
-| Visual Sonar Processing | ~25ms | ~38MB |
-| Navigation Computation | ~3ms | ~5MB |
-| **Total Pipeline** | **~51ms (19.6 FPS)** | **~100MB** |
+## **Troubleshooting**
 
-### **Algorithm Comparison**
-
-| Algorithm | Accuracy | Speed | CPU Usage | Best Use Case |
-|-----------|----------|-------|-----------|---------------|
-| Canny | 95% | Medium | 35% | General navigation |
-| Sobel | 88% | Fast | 28% | Noisy environments |
-| Laplacian | 82% | Very Fast | 22% | High contrast scenes |
-| Scharr | 91% | Medium | 32% | Rotational invariance needed |
-
----
-
-## 🔍 **Troubleshooting**
+> [!TIP]
+> Enable debug mode first to visualize what the system is seeing: `_debug_mode:=true`
 
 ### **Common Issues**
 
 **1. No Image Received**
+
+> [!WARNING]
+> Check camera permissions before proceeding. USB cameras often need proper permissions.
+
 ```bash
 # Check if camera topic is publishing
 rostopic list | grep camera
@@ -304,23 +339,38 @@ sudo chmod 666 /dev/video0
 ```
 
 **2. High CPU Usage**
+
+> [!NOTE]
+> CPU usage above 80% may cause frame drops and degraded performance.
+
 - Reduce image resolution in camera launch file
 - Use faster edge detection algorithm (laplacian/roberts)
 - Decrease number of sonar beams
 - Enable debug mode only when needed
 
 **3. Navigation Oscillations**
+
+> [!CAUTION]
+> Oscillating behavior can damage robot motors. Stop the robot and adjust parameters immediately.
+
 - Increase safety distance parameter
 - Reduce maximum velocities
 - Adjust speed reduction factor
 - Check for light reflections causing false obstacles
 
 **4. Memory Leaks**
+
+> [!TIP]
+> Use `htop` or `rosrun rqt_top rqt_top` to monitor memory usage in real-time.
+
 - Monitor with: `rosrun rqt_top rqt_top`
 - Check debug images are properly released
 - Verify OpenCV Mat objects are not accumulating
 
 ### **Debug Mode**
+
+> [!IMPORTANT]
+> Debug mode creates additional ROS topics and significantly increases resource usage.
 
 Enable comprehensive debugging:
 ```bash
@@ -333,9 +383,12 @@ Debug output includes:
 - **Navigation Decisions** - Velocity commands, obstacle distances
 - **Visual Overlays** - Sonar beams, detected edges, navigation vectors
 
+> [!TIP]
+> View debug images with: `rosrun image_view image_view image:=/visual_sonar/debug_image`
+
 ---
 
-## 📈 **Performance Optimization**
+## **Performance Optimization**
 
 ### **Real-time Performance Tips**
 
@@ -354,6 +407,10 @@ rosrun dynamic_reconfigure dynparam set /usb_cam_node framerate 15
 - **High-speed navigation:** Use `roberts` or `laplacian`
 
 **3. Parameter Tuning:**
+
+> [!NOTE]
+> These configurations are starting points. Fine-tune based on your specific robot and environment.
+
 ```yaml
 # Optimized parameters for different scenarios
 indoor_config:
@@ -375,9 +432,12 @@ high_speed_config:
   max_linear_vel: 0.8
 ```
 
+> [!CAUTION]
+> High-speed configuration requires extensive testing and safety measures.
+
 ---
 
-## 🧮 **Algorithm Details**
+## **Algorithm Details**
 
 ### **Visual Sonar Principle**
 
@@ -428,7 +488,7 @@ Emergency_stop = any(beam_distance < emergency_threshold)
 
 ---
 
-## 🎯 **Use Cases and Applications**
+## **Use Cases and Applications**
 
 ### **Autonomous Navigation**
 - **Warehouse Robots:** Navigate between shelves and avoid obstacles
@@ -450,7 +510,7 @@ Emergency_stop = any(beam_distance < emergency_threshold)
 
 ---
 
-## 📝 **Citation**
+## **Citation**
 
 If you use **Visual Sonar ROS** in your research, please cite the original papers:
 
@@ -485,11 +545,15 @@ If you use **Visual Sonar ROS** in your research, please cite the original paper
 
 ---
 
-## 🤝 **Contributing**
+## **Contributing**
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 ### **Development Setup**
+
+> [!TIP]
+> Always create a feature branch for your contributions to keep the main branch clean.
+
 ```bash
 # Fork the repository and clone your fork
 git clone https://github.com/YOUR_USERNAME/VisualSonarRos.git
@@ -504,6 +568,9 @@ catkin_make run_tests
 # Submit pull request
 ```
 
+> [!NOTE]
+> Please ensure all tests pass before submitting a pull request.
+
 ### **Code Style**
 - Follow [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 - Use meaningful variable names and comprehensive comments  
@@ -512,29 +579,11 @@ catkin_make run_tests
 
 ---
 
-## 📄 **License**
+## **License**
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** 
 
-```
-MIT License
-
-Copyright (c) 2024 Mohammad Hossein Bamorovat Abadi
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-```
-
----
-
-## 📞 **Support and Contact**
+## **Support and Contact**
 
 - **Author:** Mohammad Hossein Bamorovat Abadi
 - **Email:** m.bamorovvat@gmail.com
@@ -546,27 +595,27 @@ copies or substantial portions of the Software.
 
 ---
 
-## 🔄 **Version History**
+## **Version History**
 
 ### **v2.0.0** (2024)
-- ✨ **Major Rewrite:** Complete modernization to C++14 standards
-- ✨ **Multi-Algorithm Support:** 6 edge detection algorithms (Sobel, Canny, Laplacian, Scharr, Roberts, Prewitt)
-- ✨ **Enhanced Safety:** Emergency stop mechanisms and graduated speed control
-- ✨ **Advanced Light Filtering:** HSV-based reflection analysis
-- ✨ **Modern Architecture:** Object-oriented design with namespace organization
-- ✨ **ROS Integration:** Parameter server support and comprehensive diagnostics
-- ✨ **Performance Optimization:** Memory efficient with real-time processing
-- 🐛 **Critical Bug Fix:** Fixed XOR power calculation error in navigation
-- 📚 **Complete Documentation:** Comprehensive README with examples and troubleshooting
+- **Major Rewrite:** Complete modernization to C++14 standards
+- **Multi-Algorithm Support:** 6 edge detection algorithms (Sobel, Canny, Laplacian, Scharr, Roberts, Prewitt)
+- **Enhanced Safety:** Emergency stop mechanisms and graduated speed control
+- **Advanced Light Filtering:** HSV-based reflection analysis
+- **Modern Architecture:** Object-oriented design with namespace organization
+- **ROS Integration:** Parameter server support and comprehensive diagnostics
+- **Performance Optimization:** Memory efficient with real-time processing
+- **Critical Bug Fix:** Fixed XOR power calculation error in navigation
+- **Complete Documentation:** Comprehensive README with examples and troubleshooting
 
 ### **v1.0.0** (2015-2017)
-- 🎉 **Initial Release:** Basic visual sonar implementation
-- 🔧 **Core Features:** Sobel edge detection and basic navigation
-- 📄 **Research Foundation:** Based on published IEEE papers
-- 🎮 **ROS Support:** Basic ROS node implementation
+- **Initial Release:** Basic visual sonar implementation
+- **Core Features:** Sobel edge detection and basic navigation
+- **Research Foundation:** Based on published IEEE papers
+- **ROS Support:** Basic ROS node implementation
 
 ---
 
-**⭐ Star this repository if Visual Sonar ROS helps your project!**
+**Star this repository if Visual Sonar ROS helps your project!**
 
-**📢 For the latest updates and research, visit [bamorovat.com](https://bamorovat.com)**
+**For the latest updates and research, visit [bamorovat.com](https://bamorovat.com)**
