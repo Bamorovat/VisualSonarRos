@@ -1,0 +1,381 @@
+# Visual Sonar ROS .gitignore
+
+# =============================================================================
+# BUILD ARTIFACTS
+# =============================================================================
+
+# CMake build directories
+build/
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+
+# Catkin build artifacts
+devel/
+logs/
+.catkin_workspace
+.catkin_tools/
+
+# Make artifacts
+Makefile
+*.make
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# =============================================================================
+# C++ ARTIFACTS
+# =============================================================================
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# =============================================================================
+# ROS SPECIFIC
+# =============================================================================
+
+# ROS log files
+*.log
+
+# ROS bag files (recorded data)
+*.bag
+*.active
+
+# ROS parameter files (if generated)
+*.yaml.bak
+
+# ROS launch file backups
+*.launch~
+
+# ROS message/service/action generated files
+**/msg_gen/
+**/srv_gen/
+**/action_gen/
+**/cfg/cpp/
+
+# Dynamic reconfigure generated files
+**/cfg/cpp/
+**/docs/
+**/*Config.h
+**/*ConfigReconfigurator.h
+
+# =============================================================================
+# OPENCV & COMPUTER VISION
+# =============================================================================
+
+# OpenCV generated files
+*.xml
+*.yml
+
+# Image and video files (test data)
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.tif
+*.gif
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# Camera calibration files
+calibration_*.yaml
+camera_info_*.yaml
+
+# =============================================================================
+# DEVELOPMENT TOOLS
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Qt Creator
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+*.creator
+*.creator.user*
+*.includes
+*.files
+*.config
+
+# Eclipse CDT
+.cproject
+.project
+.settings/
+
+# CodeBlocks
+*.cbp
+*.layout
+*.depend
+
+# Dev-C++
+*.dev
+
+# =============================================================================
+# SYSTEM FILES
+# =============================================================================
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# Windows
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================================================================
+# DOCUMENTATION
+# =============================================================================
+
+# Doxygen generated documentation
+doc/html/
+doc/latex/
+doc/man/
+doc/rtf/
+doc/xml/
+docs/_build/
+
+# Sphinx documentation
+_build/
+_static/
+_templates/
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.toc
+*.synctex.gz
+
+# =============================================================================
+# BACKUP & TEMPORARY FILES
+# =============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Lock files
+*.lock
+
+# =============================================================================
+# PROFILING & DEBUGGING
+# =============================================================================
+
+# Profiling data
+*.prof
+gmon.out
+callgrind.out.*
+cachegrind.out.*
+massif.out.*
+
+# Core dumps
+core
+core.*
+vgcore.*
+
+# Debugging info
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# =============================================================================
+# PACKAGE MANAGERS
+# =============================================================================
+
+# Python (if used for tools/scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+
+# Node.js (if used for web interfaces)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# DATA & LOGS
+# =============================================================================
+
+# ROS bag files and recorded data
+bags/
+data/
+datasets/
+*.bag
+*.bag.active
+
+# Log directories
+logs/
+log/
+*.log
+*.log.*
+
+# Output directories
+output/
+results/
+experiments/
+
+# Configuration backups
+config_backup/
+*.conf.bak
+
+# =============================================================================
+# CUSTOM PROJECT SPECIFIC
+# =============================================================================
+
+# Visual Sonar specific temporary files
+debug_images/
+processed_images/
+calibration_data/
+performance_logs/
+
+# Test data and examples
+test_data/
+sample_images/
+example_bags/
+
+# Benchmark results
+benchmark_*.txt
+performance_*.csv
+
+# Algorithm comparison data
+comparison_results/
+algorithm_stats/
+
+# =============================================================================
+# SECURITY & SENSITIVE DATA
+# =============================================================================
+
+# API keys and credentials
+*.key
+*.pem
+*.crt
+secrets.yaml
+credentials.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# SSH keys
+id_rsa
+id_rsa.pub
+known_hosts
+
+# =============================================================================
+# COMPRESSED ARCHIVES
+# =============================================================================
+
+# Archive files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.bz2
+*.xz
+
+# =============================================================================
+# MISC
+# =============================================================================
+
+# Tags files
+tags
+TAGS
+.tags
+.TAGS
+
+# ctags/etags
+*.tags
+
+# Coverage reports
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Memory check reports
+valgrind-*.xml
+
+# Static analysis reports
+cppcheck-*.xml

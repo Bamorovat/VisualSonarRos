@@ -1,86 +1,109 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>visual_sonar_ros</name>
-  <version>0.0.0</version>
-  <description>The visual_sonar_ros package</description>
+  <version>2.0.0</version>
+  <description>
+    Visual Sonar ROS - Advanced mobile robot navigation system using omnidirectional vision.
+    
+    This package implements a sophisticated Visual Sonar algorithm that simulates sonar-like 
+    obstacle detection using computer vision techniques. It processes omnidirectional camera 
+    images to detect obstacles and compute safe navigation paths for autonomous mobile robots.
+    
+    Key Features:
+    - Multiple edge detection algorithms (Sobel, Canny, Laplacian, Scharr, Roberts, Prewitt)
+    - Advanced light reflection elimination
+    - Configurable virtual sonar beam processing
+    - Graduated speed control based on obstacle proximity
+    - Real-time visualization and diagnostics
+    - Parameter server integration for runtime configuration
+    - Safety mechanisms with emergency stop capability
+    
+    The system has been tested on various robotic platforms and published in multiple 
+    IEEE conferences focusing on mobile robot navigation and omnidirectional vision.
+  </description>
 
-  <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <!-- Example:  -->
-  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="abbas@todo.todo">abbas</maintainer>
+  <!-- Maintainer and contact information -->
+  <maintainer email="m.bamorovvat@gmail.com">Mohammad Hossein Bamorovat Abadi</maintainer>
+
+  <!-- License information -->
+  <license>MIT</license>
+
+  <!-- URL information -->
+  <url type="website">https://bamorovat.com</url>
+  <url type="repository">https://github.com/Bamorovat/VisualSonarRos</url>
+  <url type="bugtracker">https://github.com/Bamorovat/VisualSonarRos/issues</url>
+
+  <!-- Author information -->
+  <author email="m.bamorovvat@gmail.com">Mohammad Hossein Bamorovat Abadi</author>
 
 
-  <!-- One license tag required, multiple allowed, one license per tag -->
-  <!-- Commonly used license strings: -->
-  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
-
-
-  <!-- Url tags are optional, but multiple are allowed, one per tag -->
-  <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/visual_sonar_ros</url> -->
-
-
-  <!-- Author tags are optional, multiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintainers, but could be -->
-  <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
-
-
-  <!-- The *depend tags are used to specify dependencies -->
-  <!-- Dependencies can be catkin packages or system dependencies -->
-  <!-- Examples: -->
-  <!-- Use depend as a shortcut for packages that are both build and exec dependencies -->
-  <!--   <depend>roscpp</depend> -->
-  <!--   Note that this is equivalent to the following: -->
-  <!--   <build_depend>roscpp</build_depend> -->
-  <!--   <exec_depend>roscpp</exec_depend> -->
-  <!-- Use build_depend for packages you need at compile time: -->
-  <!--   <build_depend>message_generation</build_depend> -->
-  <!-- Use build_export_depend for packages you need in order to build against this package: -->
-  <!--   <build_export_depend>message_generation</build_export_depend> -->
-  <!-- Use buildtool_depend for build tool packages: -->
-  <!--   <buildtool_depend>catkin</buildtool_depend> -->
-  <!-- Use exec_depend for packages you need at runtime: -->
-  <!--   <exec_depend>message_runtime</exec_depend> -->
-  <!-- Use test_depend for packages you need only for testing: -->
-  <!--   <test_depend>gtest</test_depend> -->
-  <!-- Use doc_depend for packages you need only for building documentation: -->
-  <!--   <doc_depend>doxygen</doc_depend> -->
+  <!-- Build tool dependencies -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>angles</build_depend>
-  <build_depend>cv_bridge</build_depend>
-  <build_depend>image_transport</build_depend>
-  <build_depend>nav_msgs</build_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>rospy</build_depend>
-  <build_depend>sensor_msgs</build_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_depend>tf</build_depend>
-  <build_export_depend>angles</build_export_depend>
-  <build_export_depend>cv_bridge</build_export_depend>
-  <build_export_depend>image_transport</build_export_depend>
-  <build_export_depend>nav_msgs</build_export_depend>
-  <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>rospy</build_export_depend>
-  <build_export_depend>sensor_msgs</build_export_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <build_export_depend>tf</build_export_depend>
-  <exec_depend>angles</exec_depend>
-  <exec_depend>cv_bridge</exec_depend>
-  <exec_depend>image_transport</exec_depend>
-  <exec_depend>nav_msgs</exec_depend>
-  <exec_depend>roscpp</exec_depend>
-  <exec_depend>rospy</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-  <exec_depend>tf</exec_depend>
+
+  <!-- Core ROS dependencies -->
+  <depend>roscpp</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf</depend>
+
+  <!-- Optional dependencies for advanced features -->
+  <build_depend>dynamic_reconfigure</build_depend>
+  <exec_depend>dynamic_reconfigure</exec_depend>
+
+  <!-- System dependencies -->
+  <build_depend>libopencv-dev</build_depend>
+  <exec_depend>libopencv-dev</exec_depend>
+
+  <!-- Testing dependencies -->
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+  <test_depend>rosunit</test_depend>
+
+  <!-- Documentation dependencies -->
+  <doc_depend>doxygen</doc_depend>
+  <doc_depend>graphviz</doc_depend>
+
+  <!-- Removed unnecessary dependencies -->
+  <!-- rospy: Not used in this C++ package -->
+  <!-- angles: Not directly used in current implementation -->
 
 
-  <!-- The export tag contains other, unspecified, tags -->
+  <!-- Export information for other packages -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <!-- Architecture-independent data -->
+    <architecture_independent/>
+    
+    <!-- Metapackage information -->
+    <metapackage/>
+    
+    <!-- Build type -->
+    <build_type>catkin</build_type>
+    
+    <!-- ROS compatibility -->
+    <rosdistro>kinetic</rosdistro>
+    <rosdistro>melodic</rosdistro>
+    <rosdistro>noetic</rosdistro>
+    
+    <!-- Additional metadata -->
+    <keywords>
+      visual-sonar, mobile-robot, navigation, omnidirectional-vision, 
+      obstacle-avoidance, computer-vision, edge-detection, autonomous-navigation
+    </keywords>
+    
+    <!-- Citation information -->
+    <cite>
+      @inproceedings{bamorovat2015effects,
+        title={Effects of Mirrors in Mobile Robot Navigation Based on Omnidirectional Vision},
+        author={Bamorovat Abadi, Mohammad Hossein and Asghari Oskoei, Mahdi},
+        booktitle={Intelligent Robotics and Applications: 8th International Conference, ICIRA 2015},
+        pages={552--563},
+        year={2015},
+        organization={Springer}
+      }
+    </cite>
   </export>
 </package>
